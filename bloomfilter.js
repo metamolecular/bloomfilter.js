@@ -1,7 +1,17 @@
-(function(exports) {
-  exports.BloomFilter = BloomFilter;
-  exports.fnv_1a = fnv_1a;
-  exports.fnv_1a_b = fnv_1a_b;
+(function(global) {
+  'use strict';
+  
+  if (typeof module !== 'undefined' && module.exports) {
+    module.exports.BloomFilter = BloomFilter;
+    module.exports.fnv_1a = fnv_1a;
+    module.exports.fnv_1a_b = fnv_1a_b;
+  } else {
+    // TODO: set global properties
+  }
+  
+  // exports.BloomFilter = BloomFilter;
+  // exports.fnv_1a = fnv_1a;
+  // exports.fnv_1a_b = fnv_1a_b;
 
   var typedArrays = typeof ArrayBuffer !== "undefined";
 
@@ -115,4 +125,5 @@
     a += a << 5;
     return a & 0xffffffff;
   }
-})(typeof exports !== "undefined" ? exports : this);
+// })(typeof exports !== "undefined" ? exports : this);
+})(this);
